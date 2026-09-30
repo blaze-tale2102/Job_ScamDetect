@@ -1,0 +1,7 @@
+{
+  "model_name": "Logistic Regression + SMOTE",
+  "model_type": "tfidf",
+  "best_threshold": 0.5263386964797974,
+  "uses_smote": true,
+  "feature_type": "tfidf"
+}
