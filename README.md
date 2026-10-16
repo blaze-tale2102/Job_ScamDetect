@@ -26,7 +26,14 @@ job-scam-detection/
 │   ├── figures/                # EDA & evaluation charts
 │   └── metrics.json            # All model metrics
 ├── app/
-│   └── app.py                  # Streamlit web app
+│   ├── server.py               # Flask REST API for predictions
+│   └── app.py                  # Streamlit web app (legacy)
+├── frontend/                   # Next.js 16 Web Application
+│   ├── app/
+│   │   ├── page.js             # Main dashboard (Scanner, Intelligence, Guide)
+│   │   ├── globals.css         # Custom Glassmorphic design system
+│   │   └── layout.js           # Next.js Root Layout
+│   └── next.config.mjs         # API proxy rewrites
 ├── tests/
 │   ├── test_preprocess.py
 │   └── test_predict.py
@@ -40,43 +47,39 @@ job-scam-detection/
 # 1. Clone / navigate to the project
 cd job-scam-detection
 
-# 2. Create a virtual environment (recommended)
-python -m venv .venv
-.venv\Scripts\activate        # Windows
-# source .venv/bin/activate   # Linux / macOS
-
-# 3. Install dependencies
+# 2. Python environment & dependencies
 pip install -r requirements.txt
 
-# 4. Download the dataset
-#    → https://www.kaggle.com/datasets/shivamb/real-or-fake-fake-jobposting-prediction
-#    Place fake_job_postings.csv in data/raw/
+# 3. Frontend dependencies
+cd frontend
+npm install
+cd ..
 ```
 
 ## 🔬 Usage
 
-### Run EDA
-```bash
-python notebooks/01_eda.py
-# Charts saved to reports/figures/
-```
-
-### Train models
-```bash
-python -m src.train
-# Trains 7 model variants, picks the best by F1 on the fraud class,
-# runs 5-fold CV, and saves the pipeline to models/
-```
-
 ### Run tests
 ```bash
-pytest tests/ -v
+python -m pytest tests/ -v
 ```
 
-### Launch the Streamlit app
+### Launch the Application (Next.js + ML Backend)
+
+**Step 1: Start the ML API server (Port 5000)**
 ```bash
-streamlit run app/app.py
-# Opens at http://localhost:8501
+python app/server.py
+```
+
+**Step 2: Start the Next.js frontend (Port 3000)**
+```bash
+cd frontend
+npm run dev
+# Opens at http://localhost:3000
+```
+
+*(Optional) Launch legacy Streamlit interface:*
+```bash
+python -m streamlit run app/app.py
 ```
 
 ## 📊 Results
