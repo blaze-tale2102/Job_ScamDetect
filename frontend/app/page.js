@@ -196,7 +196,7 @@ Job Title: ${formData.title || "N/A"}`;
       <header className="app-header">
         <div className="header-badge">
           <span className={`badge-dot ${apiConnected ? "" : "error"}`}></span>
-          {apiConnected ? "ML Engine Online (Port 5000)" : "Connecting to ML Backend..."}
+          {apiConnected ? "ML Engine Online" : "Connecting to ML Backend..."}
         </div>
         <h1 className="hero-title">
           🛡️ Safe<span className="gradient-text">Hire AI</span>
