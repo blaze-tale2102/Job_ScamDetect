@@ -201,10 +201,7 @@ Job Title: ${formData.title || "N/A"}`;
         <h1 className="hero-title">
           🛡️ Safe<span className="gradient-text">Hire AI</span>
         </h1>
-        <p className="hero-sub">
-          Industrial-grade job fraud detection. Analyze postings with NLP feature embeddings,
-          SMOTE-balanced gradient boosting, and explainable red-flag heuristics.
-        </p>
+
 
         {/* Navigation Tabs */}
         <nav className="nav-tabs">
@@ -838,17 +835,7 @@ Job Title: ${formData.title || "N/A"}`;
         </section>
       )}
 
-      {/* Footer */}
-      <footer className="app-footer">
-        <p>
-          ⚖️ <strong>Disclaimer</strong>: SafeHire AI is an analytical screening aid designed for
-          threat mitigation. Predictions should be verified with official employer registries.
-        </p>
-        <p style={{ marginTop: "0.4rem" }}>
-          Built with Next.js & Python ML Pipeline (TF-IDF, Gradient Boosting, SMOTE) | Trained on
-          EMSCAD Dataset
-        </p>
-      </footer>
+
     </main>
   );
 }

@@ -3,5 +3,12 @@
   "model_type": "tfidf",
   "best_threshold": 0.5263386964797974,
   "uses_smote": true,
-  "feature_type": "tfidf"
+  "feature_type": "tfidf",
+  "metrics": {
+    "accuracy": 0.9839671886651753,
+    "precision": 0.8,
+    "recall": 0.8923076923076924,
+    "f1": 0.8436363636363636,
+    "roc_auc": 0.9914154810706535
+  }
 }
